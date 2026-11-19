@@ -121,4 +121,9 @@
   <url><loc>https://coldcoupons.shop/page-7.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://coldcoupons.shop/page-8.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://coldcoupons.shop/page-9.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://coldcoupons.shop/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://coldcoupons.shop/contact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://coldcoupons.shop/privacy.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://coldcoupons.shop/terms.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://coldcoupons.shop/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
 </urlset>
