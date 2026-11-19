@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unlock Your Code | ColdCoupons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- =========================================================
+       ADBLUEMEDIA CUSTOM LOCKER CSS
+       (Copy everything inside <style> into AdBlueMedia CSS tab)
+       ========================================================= -->
+  <style>
+    :root {
+      --cc-text: #2b3845;
+      --cc-text-second: #5d7185;
+      --cc-text-third: #8fa3b7;
+      --cc-bg: #f8fbfd;
+      --cc-bg-secondary: #f0f7fc;
+      --cc-card: #ffffff;
+      --cc-primary: #0088cc;
+      --cc-accent: #01c0ff;
+      --cc-accent-soft: #dff6ff;
+      --cc-border: #e3eef6;
+      --cc-success: #4bb543;
+      --cc-radius: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(1, 192, 255, 0.12), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(0, 136, 204, 0.10), transparent 45%),
+        var(--cc-bg);
+      color: var(--cc-text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cc-locker-backdrop {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .cc-locker-card {
+      background: var(--cc-card);
+      border: 1px solid var(--cc-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 50px rgba(24, 58, 90, 0.12);
+      overflow: hidden;
+      animation: ccFadeUp 0.35s ease-out;
+    }
+
+    @keyframes ccFadeUp {
+      from { opacity: 0; transform: translateY(14px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Header matching ColdCoupons navbar + modal top */
+    .cc-locker-header {
+      background: linear-gradient(135deg, #0d2236 0%, #163654 60%, #0b4a73 100%);
+      padding: 22px 24px 20px;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cc-locker-header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(1, 192, 255, 0.22) 1px, transparent 1px);
+      background-size: 16px 16px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .cc-header-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .cc-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 6px 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    .cc-logo {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+
+    .cc-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cc-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .cc-pill-verified svg {
+      color: #6ee768;
+    }
+
+    .cc-title {
+      position: relative;
+      z-index: 1;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .cc-subtitle {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+    }
+
+    /* Body */
+    .cc-locker-body {
+      padding: 22px 24px 20px;
+    }
+
+    /* ColdCoupons signature notched coupon ticket */
+    .cc-ticket {
+      position: relative;
+      background: var(--cc-accent-soft);
+      border: 1.5px dashed rgba(1, 192, 255, 0.55);
+      border-radius: 1rem;
+      padding: 16px 22px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .cc-ticket::before,
+    .cc-ticket::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      background: var(--cc-card);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cc-ticket::before {
+      left: -10px;
+      border-right: 1.5px dashed rgba(1, 192, 255, 0.55);
+    }
+
+    .cc-ticket::after {
+      right: -10px;
+      border-left: 1.5px dashed rgba(1, 192, 255, 0.55);
+    }
+
+    .cc-ticket-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--cc-primary);
+      margin-bottom: 6px;
+    }
+
+    .cc-code-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px dashed var(--cc-accent);
+      border-radius: 10px;
+      padding: 8px 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cc-text);
+      letter-spacing: 0.08em;
+    }
+
+    .cc-code-blur {
+      filter: blur(4.5px);
+      user-select: none;
+      color: var(--cc-primary);
+    }
+
+    .cc-step-note {
+      font-size: 13.5px;
+      color: var(--cc-text-second);
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .cc-step-note strong {
+      color: var(--cc-text);
+      font-weight: 600;
+    }
+
+    /* Offers list container (AdBlueMedia injects offers here) */
+    .cc-offers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .cc-offer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      text-decoration: none;
+      background: var(--cc-bg-secondary);
+      border: 1.5px solid var(--cc-border);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--cc-text);
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      cursor: pointer;
+    }
+
+    .cc-offer-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--cc-accent);
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(1, 192, 255, 0.16);
+    }
+
+    .cc-offer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .cc-offer-num {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--cc-accent);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(1, 192, 255, 0.35);
+    }
+
+    .cc-offer-info {
+      min-width: 0;
+      text-align: left;
+    }
+
+    .cc-offer-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cc-text);
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .cc-offer-desc {
+      font-size: 12px;
+      color: var(--cc-text-second);
+      line-height: 1.35;
+    }
+
+    .cc-offer-cta {
+      flex-shrink: 0;
+      background: var(--cc-accent);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 13px;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: background 0.16s ease;
+    }
+
+    .cc-offer-btn:hover .cc-offer-cta {
+      background: var(--cc-primary);
+    }
+
+    /* Waiting status bar */
+    .cc-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      background: var(--cc-bg);
+      border: 1px solid var(--cc-border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: var(--cc-text-second);
+      font-weight: 500;
+    }
+
+    .cc-pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--cc-accent);
+      position: relative;
+    }
+
+    .cc-pulse-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--cc-accent);
+      animation: ccPulse 1.5s infinite ease-out;
+    }
+
+    @keyframes ccPulse {
+      0%   { transform: scale(0.7); opacity: 0.9; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* Footer trust row matching ColdCoupons footer */
+    .cc-locker-footer {
+      border-top: 1px solid var(--cc-border);
+      background: var(--cc-bg);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 11.5px;
+      color: var(--cc-text-third);
+    }
+
+    .cc-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cc-trust-item svg {
+      color: var(--cc-accent);
+    }
+
+    /* Progress bar for 2-offer requirement */
+    .cc-progress-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--cc-bg-secondary);
+      border: 1px solid var(--cc-border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--cc-text);
+    }
+
+    .cc-progress-steps {
+      display: flex;
+      gap: 6px;
+    }
+
+    .cc-step-dot {
+      width: 28px;
+      height: 8px;
+      border-radius: 999px;
+      background: #d5e6f2;
+      transition: background 0.25s ease;
+    }
+
+    .cc-step-dot.done {
+      background: var(--cc-success);
+    }
+
+    /* Unlocked state (ONLY shown after 2 verified offers) */
+    .cc-unlocked-box {
+      display: none;
+      text-align: center;
+      padding: 8px 0 4px;
+    }
+
+    .cc-unlocked-box.show {
+      display: block;
+    }
+
+    .cc-unlocked-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(75, 181, 67, 0.14);
+      color: #2f8a28;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .cc-full-code {
+      background: var(--cc-bg-secondary);
+      border: 2px dashed var(--cc-accent);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cc-text);
+      margin-bottom: 14px;
+      word-break: break-all;
+    }
+
+    .cc-copy-btn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 18px;
+      background: var(--cc-accent);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.16s ease, transform 0.12s ease;
+      box-shadow: 0 8px 20px rgba(1, 192, 255, 0.28);
+    }
+
+    .cc-copy-btn:hover {
+      background: var(--cc-primary);
+      transform: translateY(-1px);
+    }
+
+    .cc-copy-btn.copied {
+      background: var(--cc-success);
+    }
+
+    @media (max-width: 480px) {
+      .cc-locker-header, .cc-locker-body { padding: 18px; }
+      .cc-offer-btn { padding: 11px 12px; }
+      .cc-offer-cta { padding: 6px 10px; font-size: 11.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       ADBLUEMEDIA CUSTOM LOCKER HTML
+       (Copy inside AdBlueMedia HTML tab; supports {offers} or JS feed)
+       ========================================================= -->
+  <div class="cc-locker-backdrop">
+    <div class="cc-locker-card">
+
+      <!-- Header with ColdCoupons Logo -->
+      <div class="cc-locker-header">
+        <div class="cc-header-top">
+          <div class="cc-logo-wrap">
+            <img class="cc-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAAAyCAYAAACEcF8sAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAdi0lEQVR42u18eZScZZnv712+pdaurl7S3enEkIQOCZ0QIJCwI4RNQAEvaojggpdxZBzvzFGvOg6DB9EzgsIICINckUE2I0YRIaJgLpCE0FkIWWlC1t7otbqWr77lXe4fVdWpFNXdCTrn6DXvOc/56vRS7/J79vd5PuDYODaOjWPj2Hifg/w1LFJrTd+zcELUMfj+QgEsA6zyWTlU5ee/NWDJXyBwE1E18FQVAgD1twAm+TNICf4c6q0MPF5GZtnnagCWk6igsd/9/wwkeR9gTaTeVLXnZAdY/P5y0OwKMqtIYSVofhm5ZT8r/d2465iIGd8vUx7Jd/45GJ8chS0qJz4JgKKaaqtcYIXKNIsUBRAGEC/7bJfNSSukrhw0p+xZ+uxXSGXlqNwjJlHVVQ96Art9JEC+L8afEMAKlUarqDQ+gVSoioPzq9goVHyvXQQroZRK5HK5ekLIvHA4fA4htEUBVGo4SmNQap1SGq7UUFITH0AqwrHfZugHkAWQLlI1ICvnr9xj+aGrij2JasxYxXbzSez3uMwxDvOPCyaZxJHgZZJhVzzNSaTCrSC/YnHlkhcuSlsiCIL6vXv3zgyHw1e2tExdqgjhUgOBKpBffHoK8CXgScCVgK/gRzlWn1yHlQQYBpAqUrZITtkaSoNX7LGSKVUV9TweI1T7rvEYfTwnTExAVYEkE0idWXa4JYpu3ry5/qc//Wn7tm3bju/r62vJZrNJIQS3LMsJhULZhoaGnvnz57910003vTF//vzBKgfol01plqnLhJSyfvfu3W2BkFcef8LccxUILQfNVwXAPFkAsPRZaEDpwmE8uzu17dR69vL1c6NbOCXDOARm+RpU2fx2mfTbFeZBlDFguTS7ZYdKq9ju0nmZFfabTgJepR2vZs8Pk34yAXglqYj7vh//2te+dubKlSs/8q6TXxA7fbEdW7gQkRPmwkzWgRgGlOdBpFLI7e7E6IYOZNetdWY2Na2+5ZZbHv3Yxz62u6jSsmUczIubjQNIaq3ru7u7Z787MHjJ7Hnzz1eEcb8Iml+QMLjyEGi+KoCmK9j6e9sGsanHUx8w6e7bl9T84opZ4Z1FEIfLQBQl6V++fPnZq1at+jvDMKC1DpcDSAgRnPN0NBrtmjt37iuPP/74qlAolK6Q5pIWsbXW8ZtuumnJ+vXrL8xms9OllFFCKaeEAITQImIUhFAtpSKACodC2WQyOdjY2Ng/f/78vcuXL+9sa2sbLmOYqmagBGI5gOUqIFqk5F133bXgjjvvvNk9buaCqZ/9HGrPPhcsFJrUKov0KPp+/iR6f/yf2cvPOefeJ5544teU0hKIqjhXFEBSCNE4NDw8ezCVuaiuZfrZihlmCbSStLmyAGRJ2lytsMf3MSAFwoQCGtjj+Hil34Gb13CzgMjCXz4r9OwPL6j9PSOkv0wSXQA4ePBgfMFJJ/249Y67TrBbW0EIBeEMhBdMofJ9yGwWzt496Pv5k5ju5H6wZcuW+8rsawlAWykV/8LNNy/5r+dXPTb1szfy8IyZoOEwCKXQIIDWEBqQhgXGKAyTQ7suVDoFr7sb+QP74ex+G/kd250arXefdeaZf7j99tt/f/zxx/dXaDG3HEReIX1jkqeUql+2bNnVz65Z8w8zb73Nrr/4UoAeuWfM4zVo/dzfof7SD0Wf/5+f/epVV10VfuaZZ54qziMAmI7jJHv7+maGk1M+jkjdknikMZ5TgOeXqcoikFIDOa2wW3jYEbjYK3y4SkNrDa0BLQEpATtKQA2AG0Cea/ORd/LXfCBhtdzcbq4cFVRJsPS0CDq11nj11Vdne4zNqLtwKQhj4+4lfuoimPX1SH3z6/OKWsMtMwUUAO8bHo7uT40uTlx2Ba+7dhkMyywIHSEIFIGUEsJxgcBHKFEDzigYJeAVR6o8L5zZumXBK4/9bMGpS5Zcd+1VV93/0EMPvUCKElymfn0A4FVUZ1QplVy2bNlHn3tz6z8uWLGS263T3negabdOQ/vD/0Vfuvbqz99xxx1vf+UrX3kDgJ/P58Nr165tjzfPuJ7xyOnlDknJQQk0MCwldgsPu6SLLhUgIBqEADAAA4DWBFoBquimMgZQRkCZBmcEX5xTixlxa8mXf7effnJuKOvHmtqGPPxhfo36dSaTaYFlmxOBN6ahpIJpmrTI4NmKMIFrz7Ot2rokDBuZrAuvpx+hSBiRZC38QCKXdSA9D5G6JKQGGFCQzAojQC0LNYtOR82i05Hdvq3pF//7y//Wee65x7344os/Nk2z0maq8kWU9Hj0jjvuOOW36177won/55E/CbzSsJqacdy//Jv5w3vuuVFKGQcQ37t3b2tXT99ZduP0hSM+MOwVaMQH9uQFXsrm8ODoEO7JDuD5II198CG5BuMAY2XEAVaUOG4ScJPAtAErRGCGgD+mc8hIhfWZ8KLtab7Q0sFga1i/DSBummbsvVZ0PAAlQqGQquKtUgCcMcbNzCiliVr4voDn+nCyDpxMFm42Cy0CEFKYjYBAgoKSieeOntiOBY89Rbfm3RuWLVv2UQCJCmcLlemrcF9fX/1dd9/9xRn/eqttTZsGXeSRksOgNKD10YNYt/QipCLRBU888cTsIAii+/btm2HXNbdltGkOe8BoAGQF8Gh/CncPDmCVm0Y3AsAAaDloFKDsEDH6XjCZQTAlxPA/GhMYgsBv+zP4X6fX00SiNv4By13r+37DzlHy8UgkYhKp1BFtSEpQSqvFeABACaWcRaOmHhlEJJlEuDYBBQLf8yECAd/Jw8vlEWRzUCBgBKBHkAfjNTWYe8+P6O/WrL3pmWeemVn0G+zS3OUA2kKI8J133rnEndp6Qt1FF0MpQChASMDzJfKehJd3oaQcm8Dr6cbohg6oIJg4Y8A5khdeRFesWHGa53nhdDrdzGN1iZwoxXgaT/ansMXLg3CAcVIAgx4CjZAqkSsp/JyygokuASkYcHLExj9Nr8dVzTE0hhlsg/KOlPXZziz/vASJR6NRSqVUWqkjksAigJUxHQVACSGUBb7S+TxMk8OMxsA5Q+D5oKEwIk3NiDQ0IPBcjG54HQfu+A66HnoQ+X17j8gMNX3upug3v/nN68sA5JXpHj40NBR/4YUXLpry0WuhQSACgbzQcNwAWcfD4MEeeK4PVdxwat1a7Lz6Smf4n/8xtf/uH0y6kPjChXjnnXdmCCFMrXUYWkIDyAiFhw6OYKPjgJlF8DhASsDRsqBnPEIBQFr8H86B37sZ/HB4AP83k8PBfICUJ/GDV7qcmtG9q2yq06ZpAkoekUrRSo6XgitdfVAKQgktOC6WQWEYDOFEDaxoDGY4jFiyBsmpzRh95Y84p75+wwlvbt7x9sc/6vY89uik8zdftxxv9/RcsH79+qbxVKh54MCBZE9f3+zk+R8suL2ehyCdQT6VgjM4gCDvQPkeuFFwsw8+cB++9bWvPfutW29dm1rz6uS2sLkFuVwuahiGikQifldvv/OTbSl8a2s/tjkumEkKTggvAgEF+vunQf/z2yCdb46LIbQG+eMzoA98G2TnRlAK5IjCFpnHKeEQliaieLhnBDtzHi6c25Rg8Xr/+DjW0KPwqosSqCZIZlKYFoXWMImEZTAkGusRq4kialNEDQ2LASGDIli/Rt1wydJNj/zkJ889eM89q4bu/r6b63xrYlUai6P2okvs+++//7RqAFKlFO/s7Gz0GEtaTc0glEIqhdzQIDzHAQFgh22EopGxDeW3bxdXX331vra2ti7ddcDN7tyBYGgQwcgwRDoNmctB5nIQmQz8/neRe2sXCCE+Y0wYhiG25sL2C105WJzg1EQIJ4atggdZYGKw3z2FGU/chuRLT4J+/VMg73a/VxIB0D+sxPRHbkHd6ifBvvkZ0O49oARglGCqYYKBIAOJESHREOX0XRVtKbrlVL9/AFWFOCq4eaXzOfBinGdaBkzOYFKAEw1ONCgBVN5BPWfpZCLRe8YZZ+y44Nxzd/eteGrSNdSedTY6OjoWldvAseStlJL29/cnYNmcMAapAc0MsEgcDBIEQDQRB7NMAAQ6CMBE4NbV1Q1JKd/90AUXPLdq+SfOJpxBa801IZwwVnCChFBUqWzENPtuvvnmJ/L5PLLZbHgIjdHTW2z00gBX1sXxW2cUTYyDM2CQCJDX/gCDESilgXwOZMPL0Fcse282d/1LMBlBVmnAc0E2vgxy5UxIovG8l8ZGx4GmwKbRPF7ek8fFDaZa2poov8d5jy865uDrAjNpKcEYG1cCOQAihYKUIGQS70QIaK0zhJB0TU2N297evu/FP65uL05X9FTfa+7jJ5+KdwYHZ5Q5nWMAHrqTK/4XowTUCsGIEQTpFIiS8HwBzQ0wDuggAGfMNwwjPX369OEHH3zwUdd1HyOEcKWUqbU2tdYghAhCiBuLxbK2bbuEENrV1dWUz+ftuS015sI5CTxwcBgDgUBKSVweicMjGs+qFGCH8U5Prsyvjo9j5cPY01v2d+HomHNDCNAjAmgKDAcSngR6czJe3POYgVWqeHAEkEpDyoK0QApYlgEU4kB/PBt4FBeF0EqCMeYCcAzD8JuamgZlOl1ch4YGASVlQBYxMRsb4UqV8DzPtCwLhwEIAKZpqrGssCYglIByjiDvwrAt5DI5MNMETA4tBCigKKWCUipisZgbi8VUWUKAlmVd/LJkLM3n8zQIAv5WStHXdo3gw8fFMStk4jqrFq8GOeSohKYArvoUyKZXgXwOmDkXevH51Q/lw8uB9S8B2TQwfRb0mRcfzr1FIFFUzXkBswQgKfrySgr4uqAxRCDgjKbBKUEsFoKGAa0kSmq3SvjFAdCClyonv4TVULZtuwAEIQSWZblaCCilIIVEQDgoISBaQQPgjIJCg3IOSYmdyWS4ZVmHqVAQQpRlWT58T2gpOWEEnAD5vAMpBLi2QCmBm83BskwQz4PBuSCEmABMKaVyHIcWN2kSQkppOqG15lpryhjzw+EwtNZUKUWTNgGxGAxKILSG0Bo1lIEToAuAPnER5P3PgvQdBI5vB0KR6kw95yToH/0G6NkPPWseEIm/9+q2qJuKXK201qoggQX1qaSC9Dx4UiNwHDgjKZgmRzweAiGkPIwov3UYu5KilHJ6FF5RMSkAQgiklJRQCq0B3/UQQEBpAikV/GwG0XgEoZAJk9GiRJLDVPdYAVA8Hne4EL50HJvF41CBDy+bQay+HjwUAiGAyOfh5V1YSsIwDEUIibqui5NPOeVT3YNDswuxGhmLUXUBxMJhSeWfddqiZ+699951hBAVIUKc94EYfrh/CNdNS+BZdxRLozEkKMV2lS/ojylToadMnbz2o6EZuqF5LLGiy4DT5SSBmEkcFEAsJLCLdtBJjSIQAlIqmJaJUNiCWVRVWkqYpsnLqgREWVAfZozZhmFQ5L0jAjCfz9sATK01HxkZCZNIFEpreK6PfCYLDQIZCAjfh8U0IqEklO+DKe3E4/GxKzFeyq1RSkUkEslGLCud37c3HmmfjyCbRW1jHSSzQFFIHJvxKLTvgkVjyDhO1HXdmkceeeTEd5P1py98+tdjCrsUWpXb8yCVwprLL7lGKbWeUup39w+767eOQIWBJpNjprTwkpuBZRLkPSDXJ0B9hkACvtAQoiAxShXsFKUFW0GgQSlgGhQmAzSVMOoYwglSyBypgm1REpABMD3GBgEIIYTSANUgUKBg4Qj8dBqWbcEK2QhFw9Cl9SuJUChkFtNZfvHsSjYxzBiLWpZlFtKkkwxKqed5YQBhrbW5d+/eRrulBb6ikIQXrZgGYwRWPIJEQx0M00B2526ETWPQMAxRCaCglIqamppUQ0NDX3rTxtbIifMRS8QAygopIUVQ+ETAwiEwSiCbW+JPP/1069O//OUpdZdeBhqNQWsgkBp+zoEVMkG5AUYLwiRzOZiUOrW1tb5hGNkGbyT9h0EfLU0MD/eOwAwBKSaBNMGnjShmmbtw6qlzYdohDA6P4EB3L06YOxdKAx0bNuLkhQthcIa+3h4I30Pb7JlgBFi7dh2MxlPwna4M/LgsAC4K4AUBcHKj2QVABEEAVQSfcg4aicFQGirvQEoFoQCmKWgxmS2ECG/YsGEWYywRi8WGDcNw4/G4TwgxKaWJIsCTVS6BmCaEEDUAXCGEvWnT5pmJ666HJhSwbBihECg0QpEwTMsALSbbR19fj2mtrbvKL6V5WUzjNzQ0pObMmdP50ppXFk399GfHHC2GYvyiKUhRJymp0Pqlf8bN3/iXTyCR4PM+fDU8oRAECs5oGkbIhkkK4QgtuuKjr7+OKQ0N+2KxmBsKhYanZ/qHiS/VkAPqZRRCILBCwHXRML5wfBQbOjTCHIhYFNIiyJkKzZHCZvabAlOjFJwzSBtwoZGwKLTWCDOFs1ot1EcYbtw3BBkUwfM0bE2y50+z9gNwpZQCxRsNEIAyBkIoAs8HKIN2PBimAcIoWCSCl3buWrL6+uuXaCGU9jwFIRWlxIdUCDPqfKClxcHstskFMBKhAwMDUa218+STT87c2tc7s/2Ci+CDgGjAyzkwLRMShVCOUgpojaEXf4+PXnjh+rI7wUMSCEA0NjamFy9evOXZ2759jT8wYJsNDWOTMgIwogtemiTI512QeSdh2qM/N+1YFDochZt1kUtnwBgFMwwECjDoIXs08LvnccUZZ7xumqZTV1fX3d3dnZpOh1MH8g3JIAwYloZhEDT17MArvT4cx0FHRwcopZBSIggCpFIpAEAul8PatWsLqjkIoJRCb2/v2O9efbWQGao1piPjm/A9wM0BS+qMHQ1hlpJS+iUAQQpMxqGQyeehlAIhgJvNwgrbsLiJluXXo2X59cWgUFNoTXXBsJpaKbgH9kc3XHYRphwBgGZjI372s5+d8KMf/Wjhq1u3LTz+h/dRFolCuT7yI8OQQQDBOXxPwA4Xzjy/5x0Emzf3/9NTT75RDUAFwI/H486cOXM6Z0+ftq374YcWHffVr1etgqKUQGqCbDoHaAVJXdjMgO96UELAsMKQqpDTVCCgRMM9eAC5l1cPf6OjYw2l1Gltbe3aunVrz2K1u+vtXH3SDAOGRcANIHncTLRHOXbu3InjjjsOtm0jnU5jYGAAs2bNAgBs27YNc+fOBWMM/f398H0fra2t0Fpj69atmDdvHgQI3N0efA/wHY3Agfri+dHVpdIOKaXQY/vScDNZQArEm6YAjMESAbycA2EbMBg5TA2CkDHHigCwp7aO3eRPNqZcdQ1efunFc2Nnn4f53/53GPX1yGWyyI5kQAkQa6iHUgqB50EjDgKNfT+4E+efe84vGhsbUwAcrbWoVKGCMea0t7cfuOKKK1b9x4MPtk+55lo7PHt2lThGwzBNRBob4aVG4Lo+iOHB9zwIP4DwfdRYFpRpwCIaUArv3H4bzj/zzJ/PmjVrEIA7depUv66ubvvs7r0t0zG7tSfTkDTMwn3fUxmG81trYZomEokEwuEwACCdTiOZTBbcZ85RW1sLzjlyuRwYY0gmk9BagzGG2mQSj/bm0et48ByNbAo4rYG/ftnM0Fulso4gCMYq1KTvgaoAieYp0IQVHCPTgBYC0vdhhKw/WzV1/SWXof6Syw45d54PQKN2Sj0EWCFxrhS8bAZKSgy88Dz06691PrJz58pSSQghpAAgIURprUtq1G1tbU198IMfXLNp06b2NV/8+w8veOLn1EjUHg4gJTAMBjtkQwcRBLkcgkCAR+MwGIN083BGRlBrcFDGcfCB+2C9+camx7ZtW1GsJ3FDoRCfP3/+jr6+vuM+LDqSP85euMgxLZMyYN2AhxvUEE7SEfRkfNgBQc5TGGE2+rJ5EACddhTpnAfKAgxLCl8beGc0D600tvE4fvV2Cr/tdeHmgOwIEFPov//C2hXFksOs1hq+7+dLLjOlFDXJGmjKEGgCKA1KNBg3juje7k8Z3DTATQNSE2hFQFTBLtNoFNktm3Hw1n9N/8d3vvPvtbW1w2U1Pe9xYgQAnzHmLF68eN+nP/3pp4a+//3k1hs+efa8e++n9vTphxtiAlDDKBhbJwsjEgaLRME4hxGPQAUB/JFhvLvicXhPPbZrxeOP31ZTUzNcxkG8ra2tZ9++fev87duTV9ON4RWjixc4tOCzbtE+dtq1eLorD8rzxeulOEj3aCE0iTYC72YKsZ1iUJJC7UtBCiBAI/weF24WyAxrqKzO3n1hzUNz680DxcImBwB3HMcv5DoJDMMAiukrDo2AkKILR46mFOj99TcUYy1OAJsAglAQDYyuW4fu79yW/tLnPvetG2+8cVtFMdUhACuk0InFYvTiiy/eZprmfffdd9/wumuuvLTl7//Bbrr24+Dx+JjeNyDBbQN20xSAcTCDFcoEhEC6Yy3233WHagZWP/Pcc3ctXLCgq+zwfADUtm11zjnn7MrlcmF6YA+9lhD8cmRRe04ZXBWLlKQolEowDlBWcPlBDk82K1W41pMCCHyNwAXcnEZ6EOB5nb7n3MgDH58X2wygv3gIvtaaZ7NZp7DtQ5njkrCZVI/lIo821/knSSPR8Pt60P3Yo1CbNu773le/fPvnP/OZN4tlkemygipVmQtVZVXLTm1tLS699NI3W1tbh3/zm990rHjq8Y9sfuC+BZEzzrQTS85CuK0NRm0ShDNAKQTpNDJ792J0QwfS69aImryz7aZPfOKx7373u69xzlNl3OOWX8XU1tZi6dKlb6xevVrxA/v9euK4T6dOnTfoJ+Ii0BAhgpPqTbhSw1MKQ1KOJalL2RUlNaQARAAELuCkNTLDGsfbuvPeD0UfOW9mYhcpgFcqK1Raa1NKmSKu63i9PXFeYSaO9IpJuXnIbBa5t94CpFT5ffuoDgJoKQukJKA0SoxCSOHWuXTxCwDa9+EPDiC95Q0M/W4V3I0bBpecdtqv7n7qiZXzWqf2ldXUuuPWhY5X3Ku1DudyuXh3d3f9m2++OX3lypUnd3Z2tvX397fk8/moUopTSoVlWdn6+vqutra2zhtuuGH95Zdf3kUIKa9ndMapaLYBhDOZTHLjxo2z33rrrcVeIOe9RtvaXsaM6eG6qL24KYQMkzi/IYJf9adx0AvGJFAXg/TA08hngHxao56I/utm6pe+cVb9izWxaB8hpLyw1y1k/RV/+OGHZ3zve9/70sG+vqWEMU4IASl4l3Qy2dPQSgsBRohrMJatqanpO++883Y89/zzS9NCtkAKQQEBpQ7LXxbzrxSUFnKsGgpSqJBpDjc3N+8+66yz1t1yyy2vNzU1DY9TDzo+gOP06Y0lb5VSthDCFkLYUkqzmMQFY0wZhiEopYIQUl4W7oxTHo6KajgTQFgIEe/u7m7atWvXCb29vSe7QrfVLvnIop1pap7UWmP+dHsKKSmx+V23YK+K4CHQKq797JyIf+CiZvXGJ+cnOqY2NfYYhjFcpT+ipGX4yMiI3dPTk6CURi3LChuGYXPOTUIIJ4TQavd6uqAiFaVUFRnXt23bZ4yJdDpNBwcHTdd1eSgUopFIhJZGKSuilKLqUA2O4pwL0zT9cDjsM8b8ilL+qn0lVUvrJ2lw4RN0J6FKJ49f8Zysq4eXZfijvu8nOjo6Znd2dp6srWh7zcz57XbtlKgY6urJmrXR13fs6fc1gUHh1plIza5Bz5yGSHdLc1NfXV3doGma6XGkv5yBypnHnKDBZbKuIjFO19VkHcYTNbZUPb9qHUp8gkZDVTxgVVZC7lbZIJ2gWWPCFqmi81TeRKIAKNM0xbRp09SOHTtsWhOLU8NOwstmYw0top2O/nbxmS0l7ndDoZATDocd0zRdSmk17nWrtLiVr7v0O3qE4E3UGoYqIOIImEFNcnbjdhnzI+gYVRXNi2KCRb2nUXGyJsUKEMc2EIlEhBBiDx86OLhn7/aOtlPOoIuXnLInEqoT47Ri+VU6fMZtzyqpwgoGRZWSwYnAwzjgHe2tvTqaZtIj7tCdpPlzMuDf7/eOqeh0Om07jmMPDAzYzc3NqKurG2OqcZovRRUOPtr26qOJ+o5kn/Rov+Nozu8v7jUj43QGj9cgOe4bKvA38tqRv4b3xBxJ7/phnPy39K6Yv+g3Nf13qepj49g4No6NY+PYODb++sf/AxffOY2n3SbqAAAAAElFTkSuQmCC" alt="ColdCoupons Logo" />
+          </div>
+          <div class="cc-badges">
+            <span class="cc-pill cc-pill-verified">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Verified
+            </span>
+            <span class="cc-pill" id="cc-left-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+              <span id="cc-coupons-left">184</span> left
+            </span>
+          </div>
+        </div>
+        <h1 class="cc-title" id="cc-locker-title">Human Verification Required</h1>
+        <p class="cc-subtitle">Instant automatic unlock right after completion</p>
+      </div>
+
+      <!-- Body -->
+      <div class="cc-locker-body">
+        <!-- ColdCoupons Ticket Box -->
+        <div class="cc-ticket">
+          <div class="cc-ticket-label" id="cc-ticket-label">Your Reserved Code</div>
+          <div class="cc-code-preview" id="cc-code-preview">
+            <span class="cc-code-blur">X9K4-M7Q2-</span><span id="cc-code-tail">8F2N</span>
+          </div>
+        </div>
+
+        <!-- Locked View (Offers + 0/2 Progress) -->
+        <div id="cc-locked-view">
+          <p class="cc-step-note">
+            Complete <strong>2 quick free offers</strong> below to verify you're human and reveal your full code immediately.
+          </p>
+
+          <!-- 2-Offer Progress Tracker -->
+          <div class="cc-progress-wrap">
+            <span id="cc-progress-text">0 / 2 Offers Completed</span>
+            <div class="cc-progress-steps">
+              <span class="cc-step-dot" id="cc-dot-1"></span>
+              <span class="cc-step-dot" id="cc-dot-2"></span>
+            </div>
+          </div>
+
+          <!-- AdBlueMedia Offer List Container -->
+          <div class="cc-offers-list" id="offerContainer">
+            <!-- AdBlueMedia live offers populate here automatically -->
+          </div>
+
+          <!-- Waiting Status -->
+          <div class="cc-status-bar">
+            <span class="cc-pulse-dot"></span>
+            <span id="cc-status-text">Waiting for 2 completed offers...</span>
+          </div>
+        </div>
+
+        <!-- Unlocked View (ONLY revealed after AdBlueMedia confirms 2 completed offers) -->
+        <div class="cc-unlocked-box" id="cc-unlocked-view">
+          <div class="cc-unlocked-badge">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Verification Complete (2/2)
+          </div>
+          <div class="cc-full-code" id="cc-full-code"></div>
+          <button class="cc-copy-btn" id="cc-copy-btn" type="button" onclick="copyUnlockedCode()">Copy Code</button>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="cc-locker-footer">
+        <span class="cc-trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          100% Free &amp; Verified
+        </span>
+        <span class="cc-trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Instant Unlock
+        </span>
+        <span>&copy; 2026 ColdCoupons</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       ADBLUEMEDIA INTEGRATION SCRIPT
+       Replace YOUR_IT_ID and YOUR_KEY with your AdBlueMedia
+       Locker credentials from the AdBlueMedia dashboard.
+       ========================================================= -->
+  <script src="assets_mirror/coupons_data.js?v=local4"></script>
+  <script>
+    const ADBLUE_CONFIG = {
+      it: "831501",
+      key: "4a1d7b7a9f26dbe08fc3a0b059296411",
+      feedBase: "https://dtvpp42hfuyb2.cloudfront.net/public/offers/feed.php",
+      checkBase: "https://dtvpp42hfuyb2.cloudfront.net/public/external/check2.php",
+      maxOffers: 4,
+      requiredOffers: 2,
+      pollIntervalMs: 5000
+    };
+
+    const _params = new URLSearchParams(window.location.search);
+    const _couponId = _params.get("id") || "";
+    let _pollTimer = null;
+    let _isUnlocked = false;
+
+    (function applyQueryParams() {
+      const title = _params.get("title");
+      const tail = _params.get("tail");
+      if (title) {
+        document.getElementById("cc-ticket-label").textContent = title;
+      }
+      if (tail) {
+        document.getElementById("cc-code-tail").textContent = tail.slice(-4).toUpperCase();
+      }
+    })();
+
+    function renderOffers(offers) {
+      const container = document.getElementById("offerContainer");
+      container.innerHTML = offers.slice(0, ADBLUE_CONFIG.maxOffers).map((offer, i) => `
+        <a class="cc-offer-btn" href="${offer.url}" target="_blank" rel="noopener noreferrer" onclick="onOfferClick()">
+          <div class="cc-offer-left">
+            <span class="cc-offer-num">${i + 1}</span>
+            <div class="cc-offer-info">
+              <div class="cc-offer-name">${offer.anchor || offer.name}</div>
+              <div class="cc-offer-desc">${offer.conversion || offer.description || "Complete this free step to verify"}</div>
+            </div>
+          </div>
+          <span class="cc-offer-cta">Free</span>
+        </a>
+      `).join("");
+    }
+
+    function onOfferClick() {
+      document.getElementById("cc-status-text").textContent =
+        "Checking AdBlueMedia for completed offers... Keep this tab open";
+      checkCompletedLeads();
+      if (!_pollTimer) {
+        _pollTimer = setInterval(checkCompletedLeads, ADBLUE_CONFIG.pollIntervalMs);
+      }
+    }
+
+    // Poll AdBlueMedia's official Lead Check API (NEVER unlocks just on click)
+    function checkCompletedLeads() {
+      if (_isUnlocked) return;
+      const cbName = "adBlueLeadCheck_" + Date.now();
+      window[cbName] = function (leads) {
+        delete window[cbName];
+        const count = Array.isArray(leads) ? leads.length : 0;
+        updateCompletionProgress(count);
+      };
+      const s = document.createElement("script");
+      s.src = ADBLUE_CONFIG.checkBase + "?testing=0&callback=" + cbName + "&_=" + Date.now();
+      s.onload = s.onerror = function () { s.remove(); };
+      document.body.appendChild(s);
+    }
+
+    function updateCompletionProgress(count) {
+      const req = ADBLUE_CONFIG.requiredOffers;
+      const shown = Math.min(count, req);
+      document.getElementById("cc-progress-text").textContent = shown + " / " + req + " Offers Completed";
+      if (shown >= 1) document.getElementById("cc-dot-1").classList.add("done");
+      if (shown >= 2) document.getElementById("cc-dot-2").classList.add("done");
+
+      if (count >= req) {
+        unlockCouponCode();
+      } else if (count === 1) {
+        document.getElementById("cc-status-text").textContent =
+          "1 of 2 offers verified! Complete 1 more offer to unlock your code.";
+      }
+    }
+
+    function unlockCouponCode() {
+      if (_isUnlocked) return;
+      _isUnlocked = true;
+      if (_pollTimer) {
+        clearInterval(_pollTimer);
+        _pollTimer = null;
+      }
+
+      const coupon = window.LOCAL_COUPONS && window.LOCAL_COUPONS[String(_couponId)];
+      const fullCode = (coupon && coupon.coupon_code) ? coupon.coupon_code : "VERIFIED-CODE";
+
+      document.getElementById("cc-locked-view").style.display = "none";
+      document.getElementById("cc-code-preview").style.display = "none";
+      document.getElementById("cc-locker-title").textContent = "Code Unlocked!";
+      document.getElementById("cc-full-code").textContent = fullCode;
+      document.getElementById("cc-unlocked-view").classList.add("show");
+
+      // Also unlock the parent ColdCoupons modal if still open
+      try {
+        if (window.opener && typeof window.opener.revealFullCode === "function") {
+          window.opener.revealFullCode();
+        }
+      } catch (e) {}
+    }
+
+    function copyUnlockedCode() {
+      const code = document.getElementById("cc-full-code").textContent.trim();
+      const btn = document.getElementById("cc-copy-btn");
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      btn.textContent = "Copied!";
+      btn.classList.add("copied");
+      setTimeout(() => {
+        btn.textContent = "Copy Code";
+        btn.classList.remove("copied");
+      }, 2000);
+    }
+
+    // Load live AdBlueMedia JSONP offer feed
+    (function loadAdBlueMediaOffers() {
+      window.adBlueCallback = function (offers) {
+        if (Array.isArray(offers) && offers.length > 0) {
+          renderOffers(offers);
+        } else {
+          document.getElementById("offerContainer").innerHTML =
+            '<div class="cc-status-bar">No offers currently available for your region. Please try again shortly.</div>';
+        }
+      };
+
+      const script = document.createElement("script");
+      script.src =
+        ADBLUE_CONFIG.feedBase +
+        "?user_id=" + encodeURIComponent(ADBLUE_CONFIG.it) +
+        "&api_key=" + encodeURIComponent(ADBLUE_CONFIG.key) +
+        "&s1=" + encodeURIComponent(_couponId) +
+        "&s2=&callback=adBlueCallback";
+      script.onerror = function () {
+        document.getElementById("offerContainer").innerHTML =
+          '<div class="cc-status-bar">Could not load offers. Please disable ad-blockers and refresh.</div>';
+      };
+      document.body.appendChild(script);
+
+      // Start periodic lead verification check
+      checkCompletedLeads();
+    })();
+  </script>
+</body>
+</html>
